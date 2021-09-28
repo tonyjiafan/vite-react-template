@@ -1,0 +1,52 @@
+.app {
+    text-align: center;
+    min-height: 100vh;
+    background: #efefef;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .appLogo {
+        animation: appLogoSpin infinite 20s linear;
+    }
+}
+
+.appHeader {
+    background-color: #282c34;
+    height: 83px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .navLink {
+        min-width: 80px;
+        height: 38px;
+        font-size: calc(10px + 1vmin);
+        text-align: center;
+        line-height: 38px;
+        border-radius: 2px;
+        text-decoration: none;
+        background: #efefef;
+        color: #555;
+        margin: 0 4px;
+        padding: 0 6px;
+        &:hover{
+            background: dodgerblue;
+            color: #fff;
+        }
+    }
+}
+
+
+.appView{
+    width: 100%;
+    height: calc(~'100% - 83px');
+}
+
+
+@keyframes appLogoSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
