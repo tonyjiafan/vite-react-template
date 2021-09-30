@@ -10,7 +10,7 @@ function App () {
       <header className={styles.appHeader}>
         <Link className={styles.navLink} to="/">首页</Link>
         <Link className={styles.navLink} to="/user">User</Link>
-        <Link className={styles.navLink} to="/user">VectorEdit</Link>
+        <Link className={styles.navLink} to="/vector">VectorEdit</Link>
       </header>
       <div className={styles.appView}>
         {renderRoutes(routes)}

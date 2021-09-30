@@ -1,10 +1,10 @@
-import './User'
 import { Counter } from '../../features/counter/Counter'
+import styles from './User.module.less'
 
 
 function User() {
   return (
-    <div className="User">
+    <div className={styles.user}>
       <Counter></Counter>
     </div>
   )

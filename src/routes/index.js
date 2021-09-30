@@ -1,5 +1,6 @@
 import Home from "@/views/home/Home"
 import User from "@/views/user/User"
+import VectorEditor from "@/views/vector/Vector"
  
 const routes = [
     {
@@ -16,6 +17,10 @@ const routes = [
         //         component: Course
         //     }
         // ]
+    },
+    {
+        path: "/vector",
+        component: VectorEditor,
     },
 ]
  

@@ -20,7 +20,16 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       less: {
-        additionalData: `@import "${path.resolve(__dirname, 'src/theme/theme.module.less')}";`,
+        modifyVars: {
+          // 此处也可设置直角、边框色、字体大小等
+          // 'primary-color': '#ffae18',// 全局主
+          // 'link-color': '#1890ff', // 链接色
+          // 'success-color': '#52c41a', // 成功色
+          // 'warning-color': '#faf614', // 警告色
+          // 'error-color': '#f5222d', // 错误色
+        },
+        // 文件覆盖样式报错无效
+        // additionalData: `@import "${path.resolve(__dirname, 'src/theme/index.module.less')}";`,
         javascriptEnabled: true,
       }
     },
