@@ -18,7 +18,8 @@ class VectorEditor extends Component {
   init(nextProps) {
     const {
       editorName,
-      withPreviewMode
+      withPreviewMode,
+      isFullscreen
     } = nextProps ? nextProps : this.props
 
     console.log('initProps :>> ', this.props);
@@ -26,7 +27,7 @@ class VectorEditor extends Component {
     const editorProps = {
       editorName: editorName,
       height: 700,
-      isFullscreen: false,
+      isFullscreen: isFullscreen,
       hideSingleImport: false, // 隐藏但文件导入
       displayMenuBarAboveTools: false, // 在工具上方显示菜单栏
       withPreviewMode: withPreviewMode, // 预览模式 只显示一个小图
@@ -277,10 +278,12 @@ class VectorEditor extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     // console.log('组件Props或者state改变时触发 -> nextProps :>> ', nextProps);
     // console.log('组件Props或者state改变时触发 -> nextState :>> ', nextState);
-    if (nextProps.withPreviewMode !== this.props.withPreviewMode || nextProps.dataType !== this.props.dataType) {
+    if (nextProps.withPreviewMode !== this.props.withPreviewMode || nextProps.dataType !== this.props.dataType || nextProps.isFullscreen !== this.props.isFullscreen) {
       this.init(nextProps).then(vector => {
         // 初始化后立即赋值
-        this.setState({vectorObj: vector})
+        this.setState({
+          vectorObj: vector
+        })
         this.updateVector(nextState, nextProps)
       })
       return true

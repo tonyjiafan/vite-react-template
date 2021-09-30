@@ -356,16 +356,22 @@ function Vector () {
   const changeWithPreviewMode = ()=> {
     setWithPreviewMode(!withPreviewMode)
   } 
+  const [isFullscreen, setIsFullscreen] = useState(false)
+  const changeIsFullscreen = ()=> {
+    setIsFullscreen(!isFullscreen)
+  } 
 
   return (
     <div className={styles.vectorWrap}>
       <div className={styles.btnBox}>
-        <Button className={styles.btn} onClick={changeStatus}>改变数据源(赋值: {type ? 'data1' : 'data2'})</Button>
-        <Button className={styles.btn} onClick={changeWithPreviewMode}>是否预览(赋值: {withPreviewMode ? '是' : '否'})</Button>
+        <Button className={styles.btn} onClick={changeStatus}>改变数据源：({type ? 'data1' : 'data2'})</Button>
+        <Button className={styles.btn} onClick={changeWithPreviewMode}>是否预览：({withPreviewMode ? '是' : '否'})</Button>
+        {!withPreviewMode ? <Button className={styles.btn} onClick={changeIsFullscreen}>是否全屏：({isFullscreen ? '是' : '否'})</Button> : null}
       </div>
       <EditorDemo 
         editorName="reactVectorEditor"
         dataType={type ? 'data1' : 'data2'}
+        isFullscreen={isFullscreen}
         withPreviewMode={withPreviewMode}
         sequenceData={type ? data1 : data2} />
     </div>
